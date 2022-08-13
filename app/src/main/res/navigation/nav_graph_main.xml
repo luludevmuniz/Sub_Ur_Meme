@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/entrarFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.alpaca.telalogin.ui.entrar.fragments.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/memesFragment"
+        android:name="com.alpaca.telalogin.ui.memes.fragments.MemesFragment"
+        android:label="Descontração"
+        tools:layout="@layout/fragment_memes">
+        <action
+            android:id="@+id/action_memesFragment_to_memeLegendadoFragment"
+            app:destination="@id/memeLegendadoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/entrarFragment"
+        android:name="com.alpaca.telalogin.ui.entrar.fragments.EntrarFragment"
+        android:label="Entrar"
+        tools:layout="@layout/fragment_entrar">
+        <action
+            android:id="@+id/action_entrarFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/memeLegendadoFragment"
+        android:name="com.alpaca.telalogin.ui.memes.fragments.MemeLegendadoFragment"
+        android:label="Meme Legendado"
+        tools:layout="@layout/fragment_meme_legendado" >
+        <argument
+            android:name="Meme"
+            app:argType="com.alpaca.telalogin.model.MemeLegendado" />
+    </fragment>
+    <fragment
+        android:id="@+id/memesFavoritosFragment"
+        android:name="com.alpaca.telalogin.ui.memes.fragments.MemesFavoritosFragment"
+        android:label="Memes Favoritos"
+        tools:layout="@layout/fragment_memes_favoritos" >
+        <action
+            android:id="@+id/action_memesFavoritosFragment_to_memeFavoritoFragment"
+            app:destination="@id/memeFavoritoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/memeFavoritoFragment"
+        android:name="com.alpaca.telalogin.ui.memes.fragments.MemeFavoritoFragment"
+        android:label="Meme Favorito" >
+        <argument
+            android:name="meme"
+            app:argType="com.alpaca.telalogin.model.MemeLegendado" />
+    </fragment>
+</navigation>

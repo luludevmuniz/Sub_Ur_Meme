@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/cor_primaria_variante"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="7dp"
+    app:strokeColor="@color/cor_secundaria_variante"
+    app:strokeWidth="0.5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imagem_ShapeableImageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <!--        <com.google.android.material.textview.MaterialTextView-->
+        <!--            android:id="@+id/nome_materialTextView"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center"-->
+        <!--            android:textColor="@color/black"-->
+        <!--            android:textSize="14sp"-->
+        <!--            android:textStyle="bold"-->
+        <!--            app:autoSizeTextType="uniform"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/imagem_ShapeableImageView"-->
+        <!--            tools:text="O rato roeu a roupa do rei de roma" />-->
+
+        <!--        <View-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="0.5dp"-->
+        <!--            android:background="@color/black"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/imagem_ShapeableImageView"-->
+        <!--            app:layout_constraintBottom_toTopOf="@id/legendar_constraintLayout"/>-->
+
+        <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+        <!--            android:id="@+id/legendar_constraintLayout"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="24dp"-->
+        <!--            android:visibility="gone"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/imagem_ShapeableImageView">-->
+
+        <!--            <com.google.android.material.textview.MaterialTextView-->
+        <!--                android:id="@+id/legendarMeme_materialTextView"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:gravity="center"-->
+        <!--                android:text="Legendar Meme"-->
+        <!--                android:textAllCaps="true"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+        <!--            <com.google.android.material.textfield.TextInputLayout-->
+        <!--                android:id="@+id/textoSuperior_textInputLayout"-->
+        <!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:padding="12dp"-->
+        <!--                app:endIconMode="clear_text"-->
+        <!--                app:helperText="Texto que ficará na parte superior do meme"-->
+        <!--                app:helperTextTextColor="@color/cor_primaria"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toBottomOf="@id/legendarMeme_materialTextView">-->
+
+        <!--                <androidx.appcompat.widget.AppCompatEditText-->
+        <!--                    android:id="@+id/textoSuperior_editText"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:hint="@string/hint_texto_superior"-->
+        <!--                    android:imeOptions="actionNext"-->
+        <!--                    android:singleLine="true" />-->
+
+        <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+        <!--            <com.google.android.material.textfield.TextInputLayout-->
+        <!--                android:id="@+id/textoInferior_textInputLayout"-->
+        <!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+        <!--                android:layout_width="0dp"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:padding="12dp"-->
+        <!--                app:endIconMode="clear_text"-->
+        <!--                app:helperText="Texto que ficará na parte inferior do meme"-->
+        <!--                app:helperTextTextColor="@color/cor_primaria"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toBottomOf="@id/textoSuperior_textInputLayout">-->
+
+        <!--                <com.google.android.material.textfield.TextInputEditText-->
+        <!--                    android:id="@+id/textoInferior_editText"-->
+        <!--                    android:layout_width="match_parent"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:hint="@string/hint_texto_inferior"-->
+        <!--                    android:imeOptions="actionNext"-->
+        <!--                    android:singleLine="true" />-->
+
+        <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+
+        <!--            <com.google.android.material.button.MaterialButton-->
+        <!--                android:id="@+id/legendar_materialButton"-->
+        <!--                style="@style/botao_padrao"-->
+        <!--                android:backgroundTint="@color/cor_primaria"-->
+        <!--                android:text="@string/texto_botao_legendar_meme"-->
+        <!--                app:cornerRadius="10dp"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintStart_toStartOf="parent"-->
+        <!--                app:layout_constraintTop_toBottomOf="@id/textoInferior_textInputLayout" />-->
+
+        <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

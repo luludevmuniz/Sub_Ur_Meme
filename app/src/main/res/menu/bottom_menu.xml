@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/memesFragment"
+        android:icon="@drawable/ic_felicidade"
+        android:title="@string/titulo_menu_descontrair"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/memesFavoritosFragment"
+        android:icon="@drawable/ic_estrela"
+        android:title="@string/titulo_menu_favoritos"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/entrarFragment"
+        android:icon="@drawable/ic_login"
+        android:title="@string/titulo_menu_entrar"
+        app:showAsAction="ifRoom" />
+</menu>
