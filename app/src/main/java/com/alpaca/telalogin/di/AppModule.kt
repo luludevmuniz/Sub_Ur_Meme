@@ -1,6 +1,13 @@
 package com.alpaca.telalogin.di
 
+import android.content.ContentValues
 import android.content.Context
+import android.graphics.Bitmap
+import android.media.MediaScannerConnection
+import android.net.Uri
+import android.os.Environment
+import android.provider.MediaStore
+import androidx.core.content.FileProvider
 import com.alpaca.telalogin.api.ApiService
 import com.alpaca.telalogin.db.AppDataBase
 import com.alpaca.telalogin.db.dao.MemeDao
@@ -13,6 +20,10 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.File
+import java.io.FileOutputStream
+import java.io.OutputStream
+import java.util.*
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -23,21 +34,19 @@ object AppModule {
     // ROOM
     @Provides
     @Singleton
-    fun proverBancoDeDados(@ApplicationContext context: Context): AppDataBase {
-        return AppDataBase.instanciar(context)
-    }
+    fun proverBancoDeDados(@ApplicationContext context: Context): AppDataBase =
+        AppDataBase.instanciar(context)
+
 
     @Provides
     @Singleton
-    fun proverUsuarioDao(appDataBase: AppDataBase): UsuarioDao {
-        return appDataBase.getDaoUsuario()
-    }
+    fun proverUsuarioDao(appDataBase: AppDataBase): UsuarioDao = appDataBase.getDaoUsuario()
+
 
     @Provides
     @Singleton
-    fun proverMemeDao(appDataBase: AppDataBase): MemeDao {
-        return appDataBase.getDaoMeme()
-    }
+    fun proverMemeDao(appDataBase: AppDataBase): MemeDao = appDataBase.getDaoMeme()
+
 
     // RETROFIT2
     @Provides
@@ -52,5 +61,4 @@ object AppModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiService::class.java)
-
 }

@@ -11,6 +11,7 @@ import com.alpaca.telalogin.repositorio.MemeRepositorio
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -20,8 +21,6 @@ constructor(private val repositorio: MemeRepositorio) : ViewModel() {
 
     lateinit var listaDeMemes: LiveData<List<Meme>>
     lateinit var listaDeMemesLegendados: LiveData<List<MemeLegendado>>
-    var memeLegendado = MutableLiveData<MemeLegendado>()
-    var isMemeFavorito = false
 
     init {
         buscarListaDeMemesArmazenados()
@@ -50,8 +49,13 @@ constructor(private val repositorio: MemeRepositorio) : ViewModel() {
         listaDeMemes = repositorio.buscarMemes()
     }
 
-    fun legendarMeme(id: Int, textoSuperior: String, textoInferior: String) {
-        viewModelScope.launch(Dispatchers.IO) {
+    suspend fun legendarMeme(
+        id: Int,
+        textoSuperior: String,
+        textoInferior: String
+    ): MemeLegendado? {
+        return withContext(Dispatchers.IO) {
+            var memeLegendado: MemeLegendado? = null
             repositorio.legendarMeme(
                 id,
                 "Iulu",
@@ -60,17 +64,19 @@ constructor(private val repositorio: MemeRepositorio) : ViewModel() {
                 textoInferior
             ).let { resposta ->
                 if (resposta.isSuccessful) {
-                    memeLegendado.postValue(resposta.body()?.data)
+//                    memeLegendado.postValue(resposta.body()?.data)
+                    memeLegendado = resposta.body()?.data
                 } else {
                     Log.d("TAG", "Erro ao legendar memes: ${resposta.message()}")
                 }
             }
+            return@withContext memeLegendado
         }
     }
 
-    fun salvarMemeLegendado() {
+    fun salvarMemeLegendado(memeLegendado: MemeLegendado) {
         viewModelScope.launch(Dispatchers.IO) {
-            repositorio.salvarMemeLegendado(memeLegendado.value!!)
+            repositorio.salvarMemeLegendado(memeLegendado)
         }
     }
 
@@ -78,18 +84,15 @@ constructor(private val repositorio: MemeRepositorio) : ViewModel() {
         listaDeMemesLegendados = repositorio.buscarMemesLegendado()
     }
 
-    fun deletarMemeLegendado(memeLegendado: MemeLegendado) {
+    fun excluirMemeLegendado(memeLegendado: MemeLegendado) {
         viewModelScope.launch(Dispatchers.IO) {
             repositorio.deletarMemeLegendado(memeLegendado)
         }
     }
 
-    fun limparReferenciaUltimoMemeLegendado() {
-        memeLegendado = MutableLiveData<MemeLegendado>()
-    }
-
-    fun atualizarMemeLegendado(memeLegendadoAtualizado: MemeLegendado){
-        limparReferenciaUltimoMemeLegendado()
-        memeLegendado.postValue(memeLegendadoAtualizado)
+    fun salvarBitmapMemeLegendado(memeLegendado: MemeLegendado){
+        viewModelScope.launch(Dispatchers.IO) {
+            repositorio.atualizarMemeLegendado(memeLegendado)
+        }
     }
 }

@@ -23,4 +23,7 @@ interface MemeDao {
 
     @Query("SELECT * FROM Memelegendado")
     fun buscarTodosMemesLegendados(): LiveData<List<MemeLegendado>>
+
+    @Update
+    suspend fun atualizarMemeLegendadoComBitmap(memeLegendado: MemeLegendado)
 }

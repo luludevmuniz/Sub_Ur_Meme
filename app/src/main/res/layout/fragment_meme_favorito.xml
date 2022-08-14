@@ -3,88 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="12dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/cor_secundaria_variante"
+    android:padding="24dp">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/memeLegendado_imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="24dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/BordaArredondada"
-        app:srcCompat="@drawable/ic_launcher_background" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/favoritar_materialCardView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        app:cardBackgroundColor="@color/cor_secundaria"
-        app:cardCornerRadius="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toEndOf="@id/compartilhar_materialCardView"
-        app:layout_constraintTop_toBottomOf="@id/memeLegendado_imageView">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/desfavoritar_materialTextView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:drawablePadding="10dp"
-            android:gravity="center"
-            android:padding="12dp"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:text="@string/texto_botao_desfavoritar"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:drawableRightCompat="@drawable/ic_estrela"
-            app:drawableTint="@color/cor_primaria" />
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/compartilhar_materialCardView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"
-        app:cardBackgroundColor="@color/cor_secundaria"
-        app:cardCornerRadius="30dp"
-        app:layout_constraintEnd_toStartOf="@id/favoritar_materialCardView"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/memeLegendado_imageView">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/compartilhar_materialTextView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:drawablePadding="10dp"
-            android:gravity="center"
-            android:padding="12dp"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:text="@string/texto_botao_compartilhar"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:drawableRightCompat="@drawable/ic_compartilhar"
-            app:drawableTint="@color/cor_primaria" />
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/concluido_materialButton"
-        style="@style/botao_padrao"
-        android:text="@string/texto_botao_concluido"
-        app:cornerRadius="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:srcCompat="@drawable/ic_launcher_background" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

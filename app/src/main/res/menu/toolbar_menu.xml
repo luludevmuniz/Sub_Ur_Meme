@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/itemMenuExcluir"
+        android:icon="@drawable/ic_lixeira"
+        android:title="@string/titulo_menu_favoritos"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/itemMenuCompartilhar"
+        android:icon="@drawable/ic_compartilhar"
+        android:title="@string/titulo_menu_descontrair"
+        app:showAsAction="ifRoom" />
+
+
+</menu>

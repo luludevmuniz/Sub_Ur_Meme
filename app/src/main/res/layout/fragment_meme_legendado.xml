@@ -30,7 +30,6 @@
         app:layout_constraintHeight_percent="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/memeLegendadoComSucesso_MaterialTextView"
-        app:shapeAppearanceOverlay="@style/BordaArredondada"
         app:srcCompat="@drawable/ic_launcher_background" />
 
     <com.google.android.material.card.MaterialCardView

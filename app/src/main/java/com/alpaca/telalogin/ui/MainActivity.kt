@@ -1,7 +1,8 @@
 package com.alpaca.telalogin.ui
 
+import android.content.Intent
+import android.graphics.Bitmap
 import android.os.Bundle
-import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
@@ -9,6 +10,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.alpaca.telalogin.AppDelegate
 import com.alpaca.telalogin.databinding.ActivityMainBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
     private val bottomNavigationView: BottomNavigationView by lazy { binding.bottomNavigationView }
+    private val appDelegate = AppDelegate()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,5 +41,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    fun abreIntentCompartilhar(bitmap: Bitmap) {
+        val uriImagem = appDelegate.obtemUriImagem(bitmap)
+        val intentShare = Intent()
+        intentShare.action = Intent.ACTION_SEND
+        intentShare.putExtra(Intent.EXTRA_STREAM, uriImagem)
+        intentShare.type = "image/png"
+        intentShare.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        startActivity(Intent.createChooser(intentShare, "Compartilhar"))
     }
 }

@@ -33,4 +33,8 @@ constructor(private val apiService: ApiService, private val memeDao: MemeDao) {
     suspend fun deletarMemeLegendado(memeLegendado: MemeLegendado){
         memeDao.deletarMemeLegendado(memeLegendado)
     }
+
+    suspend fun atualizarMemeLegendado(memeLegendado: MemeLegendado){
+        memeDao.atualizarMemeLegendadoComBitmap(memeLegendado)
+    }
 }
