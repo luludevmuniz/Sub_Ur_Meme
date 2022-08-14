@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "TelaLogin"
+rootProject.name = "Sub Ur Meme"
 include ':app'

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/cor_secundaria_variante"
+    android:background="@color/cor_primaria_clara"
     android:padding="24dp">
 
     <com.google.android.material.imageview.ShapeableImageView

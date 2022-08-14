@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="cor_primaria">#73A9AD</color>
-    <color name="cor_primaria_variante">#90C8AC</color>
-    <color name="cor_secundaria">#F5F0BB</color>
-    <color name="cor_secundaria_variante">#C4DFAA</color>
+    <color name="cor_primaria">#009688</color>
+    <color name="cor_primaria_escura">#00796B</color>
+    <color name="cor_primaria_clara">#48a999</color>
+    <color name="cor_secundaria">#607D8B</color>
+<!--    <color name="cor_secundaria_escura">#009688</color>-->
+<!--    <color name="cor_secundaria_clara">#009688</color>-->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="cor_texto_primario">#212121</color>
+    <color name="cor_texto_secundario">#757575</color>
 </resources>

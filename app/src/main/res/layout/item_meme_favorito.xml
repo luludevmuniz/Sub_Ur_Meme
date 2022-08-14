@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/cor_primaria_variante"
+    app:cardBackgroundColor="@color/cor_primaria"
     app:cardCornerRadius="10dp"
     app:cardElevation="10dp"
     app:cardUseCompatPadding="true"
     app:contentPadding="7dp"
-    app:strokeColor="@color/cor_secundaria_variante"
+    app:strokeColor="@color/cor_primaria_clara"
     app:strokeWidth="0.5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout

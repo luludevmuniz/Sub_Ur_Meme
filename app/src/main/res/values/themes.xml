@@ -1,13 +1,13 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Theme.TelaLogin" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="Theme.SubUrMeme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/cor_primaria</item>
-        <item name="colorPrimaryVariant">@color/cor_primaria_variante</item>
+        <item name="colorPrimaryVariant">@color/cor_primaria_escura</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/cor_secundaria</item>
-        <item name="colorSecondaryVariant">@color/cor_secundaria_variante</item>
+        <item name="colorSecondaryVariant">@color/cor_primaria_clara</item>
         <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>

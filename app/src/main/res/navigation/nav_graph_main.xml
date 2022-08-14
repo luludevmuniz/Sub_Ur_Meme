@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/memesFragment"
-        android:name="com.alpaca.telalogin.ui.memes.fragments.MemesFragment"
-        android:label="Descontração"
+        android:name="com.alpaca.suburmeme.ui.memes.fragments.MemesFragment"
+        android:label="Templates"
         tools:layout="@layout/fragment_memes">
         <action
             android:id="@+id/action_memesFragment_to_memeLegendadoFragment"
@@ -16,16 +16,16 @@
     </fragment>
     <fragment
         android:id="@+id/memeLegendadoFragment"
-        android:name="com.alpaca.telalogin.ui.memes.fragments.MemeLegendadoFragment"
+        android:name="com.alpaca.suburmeme.ui.memes.fragments.MemeLegendadoFragment"
         android:label="Meme Legendado"
         tools:layout="@layout/fragment_meme_legendado" >
         <argument
             android:name="Meme"
-            app:argType="com.alpaca.telalogin.model.MemeLegendado" />
+            app:argType="com.alpaca.suburmeme.model.MemeLegendado" />
     </fragment>
     <fragment
         android:id="@+id/memesFavoritosFragment"
-        android:name="com.alpaca.telalogin.ui.memes.fragments.MemesFavoritosFragment"
+        android:name="com.alpaca.suburmeme.ui.memes.fragments.MemesFavoritosFragment"
         android:label="Memes Favoritos"
         tools:layout="@layout/fragment_memes_favoritos" >
         <action
@@ -34,10 +34,10 @@
     </fragment>
     <fragment
         android:id="@+id/memeFavoritoFragment"
-        android:name="com.alpaca.telalogin.ui.memes.fragments.MemeFavoritoFragment"
+        android:name="com.alpaca.suburmeme.ui.memes.fragments.MemeFavoritoFragment"
         android:label="Meme Favorito" >
         <argument
             android:name="meme"
-            app:argType="com.alpaca.telalogin.model.MemeLegendado" />
+            app:argType="com.alpaca.suburmeme.model.MemeLegendado" />
     </fragment>
 </navigation>

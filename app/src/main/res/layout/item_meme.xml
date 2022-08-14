@@ -4,13 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="@color/cor_secundaria"
+    app:cardBackgroundColor="@color/cor_primaria_clara"
     app:cardCornerRadius="10dp"
     app:cardElevation="10dp"
     app:cardUseCompatPadding="true"
-    app:contentPadding="10dp"
-    app:strokeColor="@color/cor_secundaria_variante"
-    app:strokeWidth="5dp">
+    app:contentPadding="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/cor_texto_primario"
             android:textSize="14sp"
             android:textStyle="bold"
             app:autoSizeTextType="uniform"
@@ -43,6 +41,16 @@
             app:layout_constraintTop_toBottomOf="@id/nome_materialTextView"
             tools:src="@drawable/ic_launcher_background" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/setaBaixo_imageView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imagem_ShapeableImageView"
+            app:srcCompat="@drawable/ic_seta_baixo"
+            app:tint="@color/black" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/legendar_constraintLayout"
             android:layout_width="wrap_content"
@@ -60,6 +68,7 @@
                 android:layout_height="0.5dp"
                 android:layout_marginTop="12dp"
                 android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@id/legendarMeme_materialTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -68,9 +77,11 @@
                 android:id="@+id/legendarMeme_materialTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:gravity="center"
                 android:text="@string/texto_legendar_meme"
                 android:textAllCaps="true"
+                android:textColor="#000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/linhaDivisoria_view" />
@@ -83,7 +94,7 @@
                 android:padding="12dp"
                 app:endIconMode="clear_text"
                 app:helperText="Texto que ficará na parte superior do meme"
-                app:helperTextTextColor="@color/cor_primaria"
+                app:helperTextTextColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/legendarMeme_materialTextView">
@@ -106,7 +117,7 @@
                 android:padding="12dp"
                 app:endIconMode="clear_text"
                 app:helperText="Texto que ficará na parte inferior do meme"
-                app:helperTextTextColor="@color/cor_primaria"
+                app:helperTextTextColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textoSuperior_textInputLayout">
@@ -117,14 +128,15 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_texto_inferior"
                     android:imeOptions="actionDone"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:textColorHint="#000000" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/legendar_materialButton"
                 style="@style/botao_padrao"
-                android:backgroundTint="@color/cor_primaria"
+                android:backgroundTint="@color/cor_secundaria"
                 android:text="@string/texto_botao_legendar_meme"
                 app:cornerRadius="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
