@@ -24,17 +24,14 @@ constructor(private val apiService: ApiService, private val memeDao: MemeDao) {
         textoInferior: String
     ) = apiService.legendarMeme(id, login, senha, textoSuperior, textoInferior)
 
-    suspend fun salvarMemeLegendado(memeLegendado: MemeLegendado) {
-        memeDao.salvarMemeLegendado(memeLegendado)
-    }
-
     fun buscarMemesLegendado() = memeDao.buscarTodosMemesLegendados()
 
-    suspend fun deletarMemeLegendado(memeLegendado: MemeLegendado){
-        memeDao.deletarMemeLegendado(memeLegendado)
-    }
+    suspend fun deletarMemeLegendado(memeLegendado: MemeLegendado) =
+        memeDao.deletarMemeLegendado(memeLegendado = memeLegendado)
 
-    suspend fun atualizarMemeLegendado(memeLegendado: MemeLegendado){
-        memeDao.atualizarMemeLegendadoComBitmap(memeLegendado)
-    }
+    suspend fun salvarMemeLegendado(memeLegendado: MemeLegendado) =
+        memeDao.salvarMemeLegendado(memeLegendado = memeLegendado)
+
+    fun procurarMemePeloNome(nome: String) = memeDao.procurarMemes(consulta = nome)
+
 }

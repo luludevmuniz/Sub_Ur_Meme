@@ -21,5 +21,6 @@ interface ApiService {
         @Field("username") login: String,
         @Field("password") senha: String,
         @Field("text0") textoSuperior: String,
-        @Field("text1") textoInferior: String) : Response<RespostaMemeLegendado>
+        @Field("text1") textoInferior: String
+    ): Response<RespostaMemeLegendado>
 }

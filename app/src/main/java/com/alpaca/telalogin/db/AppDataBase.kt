@@ -6,17 +6,16 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.alpaca.telalogin.db.dao.MemeDao
-import com.alpaca.telalogin.db.dao.UsuarioDao
 import com.alpaca.telalogin.model.Meme
 import com.alpaca.telalogin.model.MemeLegendado
-import com.alpaca.telalogin.model.Usuario
 
-@Database(entities = [Usuario::class, Meme::class, MemeLegendado::class],
-    version = 3,  exportSchema = false)
+@Database(
+    entities = [Meme::class, MemeLegendado::class],
+    version = 4, exportSchema = false
+)
 @TypeConverters(Conversores::class)
 abstract class AppDataBase : RoomDatabase() {
 
-    abstract fun getDaoUsuario(): UsuarioDao
     abstract fun getDaoMeme(): MemeDao
 
     companion object {

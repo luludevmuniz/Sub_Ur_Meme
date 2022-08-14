@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.alpaca.telalogin.model.Meme
 import com.alpaca.telalogin.model.MemeLegendado
-import com.alpaca.telalogin.model.Usuario
 
 @Dao
 interface MemeDao {
@@ -26,4 +25,7 @@ interface MemeDao {
 
     @Update
     suspend fun atualizarMemeLegendadoComBitmap(memeLegendado: MemeLegendado)
+
+    @Query("SELECT * FROM Memes WHERE nome LIKE :consulta")
+    fun procurarMemes(consulta: String): LiveData<List<Meme>>
 }

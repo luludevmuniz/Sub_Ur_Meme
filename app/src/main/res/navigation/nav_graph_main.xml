@@ -3,13 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_main"
-    app:startDestination="@id/entrarFragment">
+    app:startDestination="@id/memesFragment">
 
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.alpaca.telalogin.ui.entrar.fragments.LoginFragment"
-        android:label="Login"
-        tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/memesFragment"
         android:name="com.alpaca.telalogin.ui.memes.fragments.MemesFragment"
@@ -18,15 +13,6 @@
         <action
             android:id="@+id/action_memesFragment_to_memeLegendadoFragment"
             app:destination="@id/memeLegendadoFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/entrarFragment"
-        android:name="com.alpaca.telalogin.ui.entrar.fragments.EntrarFragment"
-        android:label="Entrar"
-        tools:layout="@layout/fragment_entrar">
-        <action
-            android:id="@+id/action_entrarFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/memeLegendadoFragment"

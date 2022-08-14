@@ -10,8 +10,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.alpaca.telalogin.AppDelegate
 import com.alpaca.telalogin.databinding.ActivityMainBinding
+import com.alpaca.telalogin.util.SalvarImagem
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
     private val bottomNavigationView: BottomNavigationView by lazy { binding.bottomNavigationView }
-    private val appDelegate = AppDelegate()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun abreIntentCompartilhar(bitmap: Bitmap) {
-        val uriImagem = appDelegate.obtemUriImagem(bitmap)
+        val uriImagem = SalvarImagem(this).obtemUriImagem(bitmap)
         val intentShare = Intent()
         intentShare.action = Intent.ACTION_SEND
         intentShare.putExtra(Intent.EXTRA_STREAM, uriImagem)

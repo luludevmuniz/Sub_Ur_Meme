@@ -2,7 +2,6 @@ package com.alpaca.telalogin.ui.memes.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.alpaca.telalogin.model.Meme
@@ -74,12 +73,6 @@ constructor(private val repositorio: MemeRepositorio) : ViewModel() {
         }
     }
 
-    fun salvarMemeLegendado(memeLegendado: MemeLegendado) {
-        viewModelScope.launch(Dispatchers.IO) {
-            repositorio.salvarMemeLegendado(memeLegendado)
-        }
-    }
-
     fun buscarListaDeMemesLegendados() {
         listaDeMemesLegendados = repositorio.buscarMemesLegendado()
     }
@@ -90,9 +83,12 @@ constructor(private val repositorio: MemeRepositorio) : ViewModel() {
         }
     }
 
-    fun salvarBitmapMemeLegendado(memeLegendado: MemeLegendado){
+    fun salvarMemeLegendado(memeLegendado: MemeLegendado) {
         viewModelScope.launch(Dispatchers.IO) {
-            repositorio.atualizarMemeLegendado(memeLegendado)
+            repositorio.salvarMemeLegendado(memeLegendado)
         }
     }
+
+    fun procurarMemePeloNome(nome: String): LiveData<List<Meme>> =
+        repositorio.procurarMemePeloNome(nome)
 }

@@ -1,14 +1,18 @@
 package com.alpaca.telalogin.ui.memes.fragments
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
+import android.view.*
+import android.widget.SearchView
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
+import androidx.core.view.forEach
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Lifecycle
 import androidx.navigation.fragment.findNavController
+import com.alpaca.telalogin.R
 import com.alpaca.telalogin.databinding.FragmentMemesBinding
+import com.alpaca.telalogin.extensions.navigateWithAnimations
 import com.alpaca.telalogin.ui.memes.adapter.ItemMemeAdapter
 import com.alpaca.telalogin.ui.memes.adapter.ItemMemeAdapter.OnItemClickListener
 import com.alpaca.telalogin.ui.memes.viewmodel.MemesViewModel
@@ -20,7 +24,7 @@ import kotlinx.coroutines.withContext
 
 
 @AndroidEntryPoint
-class MemesFragment : Fragment(), OnItemClickListener {
+class MemesFragment : Fragment(), OnItemClickListener, SearchView.OnQueryTextListener {
 
     private val viewModel: MemesViewModel by activityViewModels()
     private lateinit var binding: FragmentMemesBinding
@@ -38,15 +42,33 @@ class MemesFragment : Fragment(), OnItemClickListener {
         super.onViewCreated(view, savedInstanceState)
         adapterMeme = ItemMemeAdapter(emptyList(), this)
         binding.memesRecyclerView.adapter = adapterMeme
+        configuraMenuToolbar()
         viewModel.listaDeMemes.observe(viewLifecycleOwner) {
             adapterMeme.atualizaLista(it)
         }
-//        viewModel.memeLegendado.observe(viewLifecycleOwner) {
-//            if (it.page_url.isNotEmpty()) {
-//                findNavController().navigateWithAnimations(R.id.action_memesFragment_to_memeLegendadoFragment)
-//            }
-//        }
     }
+
+    private fun configuraMenuToolbar() {
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.toolbar_menu_pesquisar, menu)
+                val search = menu.findItem(R.id.itemMenuPesquisar)
+                val searchView = search.actionView as? SearchView
+                searchView?.isSubmitButtonEnabled = true
+                searchView?.setOnQueryTextListener(this@MemesFragment)
+                menu.forEach {
+                    it.icon.setTint(resources.getColor(R.color.white, activity?.theme))
+                }
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return true
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+
+    }
+
 
     override fun onItemClick(id: Int, textoSuperior: String, textoInferior: String) {
         CoroutineScope(Dispatchers.IO).launch {
@@ -67,11 +89,36 @@ class MemesFragment : Fragment(), OnItemClickListener {
                         MemesFragmentDirections.actionMemesFragmentToMemeLegendadoFragment(
                             memeLegendado
                         )
-                    findNavController().navigate(action)
+                    findNavController().navigateWithAnimations(action.actionId, action.arguments)
                 }
                 binding.progress.visibility = View.GONE
                 requireActivity().window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
             }
+        }
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        if (query != null) {
+            procurarMemePeloNome(nome = query)
+        }
+
+        return true
+    }
+
+    override fun onQueryTextChange(query: String?): Boolean {
+        if (query != null) {
+            procurarMemePeloNome(nome = query)
+        }
+        return true
+    }
+
+    private fun procurarMemePeloNome(nome: String) {
+        val query = "%$nome%"
+        viewModel.procurarMemePeloNome(query).observe(viewLifecycleOwner) { listaFiltrada ->
+            if (listaFiltrada.isNullOrEmpty()) {
+                viewModel.listaDeMemes.value?.let { adapterMeme.atualizaLista(it) }
+            }
+            adapterMeme.atualizaLista(listaFiltrada)
         }
     }
 }

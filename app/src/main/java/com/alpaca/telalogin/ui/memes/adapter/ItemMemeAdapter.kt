@@ -43,8 +43,7 @@ class ItemMemeAdapter(
         holder.binding.apply {
             nomeMaterialTextView.text = meme.name
             imagemShapeableImageView.load(meme.url) {
-                crossfade(true)
-                crossfade(1000)
+                crossfade(false)
             }
             root.setOnClickListener {
                 TransitionManager.beginDelayedTransition(root, Explode())

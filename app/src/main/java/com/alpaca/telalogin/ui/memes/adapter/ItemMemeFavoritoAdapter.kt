@@ -35,8 +35,7 @@ class ItemMemeFavoritoAdapter(
         val memeLegendado = listaDeMemesLegendados[position]
         holder.binding.apply {
             imagemShapeableImageView.load(memeLegendado.url) {
-                crossfade(true)
-                crossfade(1000)
+                crossfade(false)
             }
             root.setOnClickListener {
                 listener.onItemClick(memeLegendado)

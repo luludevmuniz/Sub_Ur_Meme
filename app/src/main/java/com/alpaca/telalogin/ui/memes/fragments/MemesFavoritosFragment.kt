@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.alpaca.telalogin.databinding.FragmentMemesFavoritosBinding
+import com.alpaca.telalogin.extensions.navigateWithAnimations
 import com.alpaca.telalogin.model.MemeLegendado
 import com.alpaca.telalogin.ui.memes.adapter.ItemMemeFavoritoAdapter
 import com.alpaca.telalogin.ui.memes.viewmodel.MemesViewModel
@@ -43,6 +44,6 @@ class MemesFavoritosFragment : Fragment(), ItemMemeFavoritoAdapter.OnItemClickLi
             MemesFavoritosFragmentDirections.actionMemesFavoritosFragmentToMemeFavoritoFragment(
                 memeLegendado
             )
-        findNavController().navigate(action)
+        findNavController().navigateWithAnimations(action.actionId, action.arguments)
     }
 }

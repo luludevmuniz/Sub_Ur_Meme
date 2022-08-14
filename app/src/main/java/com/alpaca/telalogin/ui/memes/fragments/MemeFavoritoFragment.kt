@@ -42,7 +42,7 @@ class MemeFavoritoFragment : Fragment() {
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                menuInflater.inflate(R.menu.toolbar_menu, menu)
+                menuInflater.inflate(R.menu.toolbar_menu_meme_favorito, menu)
                 menu.forEach {
                     it.icon.setTint(resources.getColor(R.color.white, activity?.theme))
                 }
